@@ -24,7 +24,9 @@ function countChar(e){
 function countWord(e){
     const input = e.target.value;
     const blank = /\s/;
-    wordRes.innerText = `${input.split(blank).length - 1}`;
+    let res = input.split(blank).filter(word => word.length != 0);
+
+    wordRes.innerText = `${res.length}`;
 }
 
 function charSetup(){
@@ -74,5 +76,6 @@ resetBtn.addEventListener('click', function(){
     form.reset();
     wSpace.innerText="";
     woSpace.innerText="";
+    wordRes.innerText="";
 });
 
